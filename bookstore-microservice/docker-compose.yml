@@ -1,0 +1,110 @@
+version: "3.9"
+
+services:
+  customer-service:
+    build: ./customer-service
+    container_name: customer-service
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./customer-service:/app
+
+  book-service:
+    build: ./book-service
+    container_name: book-service
+    ports:
+      - "8002:8000"
+    volumes:
+      - ./book-service:/app
+
+  cart-service:
+    build: ./cart-service
+    container_name: cart-service
+    ports:
+      - "8003:8000"
+    volumes:
+      - ./cart-service:/app
+
+  order-service:
+    build: ./order-service
+    container_name: order-service
+    ports:
+      - "8004:8000"
+    volumes:
+      - ./order-service:/app
+
+  pay-service:
+    build: ./pay-service
+    container_name: pay-service
+    ports:
+      - "8005:8000"
+    volumes:
+      - ./pay-service:/app
+
+  ship-service:
+    build: ./ship-service
+    container_name: ship-service
+    ports:
+      - "8006:8000"
+    volumes:
+      - ./ship-service:/app
+
+  comment-rate-service:
+    build: ./comment-rate-service
+    container_name: comment-rate-service
+    ports:
+      - "8007:8000"
+    volumes:
+      - ./comment-rate-service:/app
+
+  inventory-service:
+    build: ./inventory-service
+    container_name: inventory-service
+    ports:
+      - "8008:8000"
+    volumes:
+      - ./inventory-service:/app
+
+  notification-service:
+    build: ./notification-service
+    container_name: notification-service
+    ports:
+      - "8009:8000"
+    volumes:
+      - ./notification-service:/app
+
+  search-service:
+    build: ./search-service
+    container_name: search-service
+    ports:
+      - "8010:8000"
+    volumes:
+      - ./search-service:/app
+
+  analytics-service:
+    build: ./analytics-service
+    container_name: analytics-service
+    ports:
+      - "8011:8000"
+    volumes:
+      - ./analytics-service:/app
+
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api-gateway:/app
+    depends_on:
+      - customer-service
+      - book-service
+      - cart-service
+      - order-service
+      - pay-service
+      - ship-service
+      - comment-rate-service
+      - inventory-service
+      - notification-service
+      - search-service
+      - analytics-service

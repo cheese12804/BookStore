@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Books</title></head>
+<body>
+<h1>Book List</h1>
+<ul>
+{% for book in books %}
+  <li>#{{ book.id }} - {{ book.title }} | {{ book.author }} | ${{ book.price }} | stock {{ book.stock }}</li>
+{% empty %}
+  <li>No books found.</li>
+{% endfor %}
+</ul>
+</body>
+</html>
