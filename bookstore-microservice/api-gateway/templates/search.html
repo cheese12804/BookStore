@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Search Books</title></head>
+<body>
+<h1>Search Books</h1>
+<form method="get">
+  <input type="text" name="q" value="{{ q }}" placeholder="title/author">
+  <button type="submit">Search</button>
+</form>
+<ul>
+{% for book in books %}
+  <li>#{{ book.id }} - {{ book.title }} | {{ book.author }} | ${{ book.price }}</li>
+{% empty %}
+  <li>No result.</li>
+{% endfor %}
+</ul>
+<a href="/">Back home</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Cart</title></head>
+<body>
+<h1>Cart of customer {{ customer_id }}</h1>
+{% if error %}<p>Error: {{ error }}</p>{% endif %}
+{% if cart %}
+<ul>
+{% for item in cart.items %}
+  <li>Item #{{ item.id }} - Book {{ item.book_id }} - Qty {{ item.quantity }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No cart data.</p>
+{% endif %}
+</body>
+</html>
